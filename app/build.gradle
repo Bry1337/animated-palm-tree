@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
@@ -34,15 +36,15 @@ dependencies {
   implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
   implementation "com.google.guava:guava:$rootProject.guavaVersion"
   implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
-  annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+  kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
 
   // Dagger dependencies
-  annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+  kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
   compileOnly 'org.glassfish:javax.annotation:10.0-b28'
   implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
   implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
   implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
-  annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+  kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
 
   // Dependencies for local unit tests
   testImplementation "junit:junit:$rootProject.ext.junitVersion"
