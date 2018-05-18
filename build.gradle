@@ -48,6 +48,8 @@ ext {
   roomVersion = "1.0.0"
   daggerVersion = '2.11'
   dexmakerVersion = '1.2'
+  apacheCommonsVersion = '3.5'
+  apacheValidatorVersion = '1.5.1'
 }
 
 
