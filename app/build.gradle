@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
@@ -34,15 +36,15 @@ dependencies {
   implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
   implementation "com.google.guava:guava:$rootProject.guavaVersion"
   implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
-  annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+  kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
 
   // Dagger dependencies
-  annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+  kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
   compileOnly 'org.glassfish:javax.annotation:10.0-b28'
   implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
   implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
   implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
-  annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+  kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
 
   // Dependencies for local unit tests
   testImplementation "junit:junit:$rootProject.ext.junitVersion"
@@ -75,6 +77,13 @@ dependencies {
   testImplementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
   testImplementation "com.android.support:design:$rootProject.supportLibraryVersion"
   testImplementation "com.google.code.findbugs:jsr305:3.0.1"
+
+
+  //Utility
+  implementation "org.apache.commons:commons-lang3:$rootProject.apacheCommonsVersion"
+  implementation("commons-validator:commons-validator:$rootProject.apacheValidatorVersion") {
+    exclude group: 'commons-logging', module: 'commons-logging'
+  }
 
   testImplementation 'junit:junit:4.12'
   androidTestImplementation 'com.android.support.test:runner:1.0.2'
